@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ailadev.kingkong2">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -19,6 +20,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name=".services.JenyCore" />
+        <receiver
+            android:name=".reciever.JenyCoreReciever"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="JenyCoreReciever"/>
+            </intent-filter>
+        </receiver>
+        <service android:name=".services.TestService"/>
+        <service android:name=".services.JenyService"/>
     </application>
 
 </manifest>
